@@ -3,12 +3,13 @@ using System.Collections.Concurrent;
 
 if (args.Length == 0)
 {
-    Console.WriteLine("Using: PEscan.exe <file1.exe> [file2.exe ...] [-formats json,txt,csv,dot] [-out <outputDirectory>]");
+    Console.WriteLine("Using: PEscan.exe <file1.exe> [file2.exe ...] [-formats json,txt,csv,dot] [-out <outputDirectory>] [--filtered]");
     return;
 }
 
 var formats = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "json", "txt", "csv", "dot" };
 string outputDirectory = Environment.CurrentDirectory;
+bool skipSystemDlls = false;
 
 var inputFiles = new List<string>();
 for (int i = 0; i < args.Length; i++)
@@ -34,6 +35,10 @@ for (int i = 0; i < args.Length; i++)
                 return;
             }
             outputDirectory = args[++i];
+            break;
+
+        case "--filtered":
+            skipSystemDlls = true;
             break;
 
         default:
@@ -82,7 +87,7 @@ Parallel.ForEach(inputFiles, parallelOptions, exePath =>
             return;
         }
 
-        var resolver = new DependencyResolver(fullPath);
+        var resolver = new DependencyResolver(fullPath, maxDepth: 10, skipSystemDlls: skipSystemDlls);
         var rootNode = resolver.BuildDependencyTree(peInfo);
 
         var baseName = Path.GetFileNameWithoutExtension(fullPath);
