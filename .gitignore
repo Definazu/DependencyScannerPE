@@ -1,0 +1,152 @@
+# .gitignore для C# проекта с поддержкой Visual Studio Code и JetBrains Rider
+
+## === .NET === ##
+# Сборки
+[Bb]in/
+[Oo]bj/
+
+# Выходные файлы сборки
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/[Oo]bj/
+[Oo]bj/
+
+# Кэш MSBuild
+[Dd]ebugPS/
+[Rr]eleasePS/
+*.log
+*.msi
+*.msix
+*.msp
+*.msm
+
+# NuGet
+[Nn]uget/
+*.nupkg
+packages/
+# Исключение: файлы конфигурации пакетов
+!packages.config
+
+# Кэши и промежуточные файлы .NET
+**/[Bb]in/**/*
+**/[Oo]bj/**/*
+**/TestResults/
+**/.vs/
+
+# Файлы пользователей
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Результаты тестирования
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+## === JetBrains Rider === ##
+.idea/
+*.sln.iml
+*.csproj.iml
+*.DotSettings
+*.DotSettings.user
+*.sln.DotSettings
+*.csproj.DotSettings
+_ReSharper.*/
+*.resharper
+[Tt]emp/
+
+## === Visual Studio Code === ##
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Локальная история для VSCode
+.history/
+.vscode/ipch/
+
+## === Временные файлы === ##
+*.tmp
+*.temp
+*.log
+*.tlog
+*.cache
+*.orig
+*~
+
+# Файлы индексации производительности
+.pidb
+.vspscc
+.vssscc
+
+## === Пользовательские настройки === ##
+.userprefs
+
+## === Файлы зависимостей === ##
+# Примечание: если используете файлы зависимостей в стиле пакетов, раскомментируйте
+#packages/
+
+## === Системные файлы === ##
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+## === Локальные настройки приложения === ##
+appsettings.Development.json
+appsettings.Local.json
+*.env
+.env.local
+*.config.user
+
+## === Другое === ##
+# Файлы резервных копий
+*.backup
+*.bak
+
+# Файлы покрытия кода
+coverage.xml
+*.coverage
+*.coveragexml
+
+# Файлы публикации
+publish/
+
+# Файлы проектов Unity (если используете)
+# [Ll]ibrary/
+# [Tt]emp/
+# [Oo]bj/
+# [Bb]uild/
+# [Bb]uilds/
+# [Ll]ogs/
+# [Uu]ser[Ss]ettings/
+
+# Файлы проектов MonoDevelop
+*.userprefs
+
+# Выходные файлы анализатора кода
+*.InspectorResults
+
+# Резервные копии шаблонов проектов
+ProjectTemplates/
+
+# Глобальный файл для Rider
+global.json.user
+
+## === Файлы, которые можно игнорировать, но иногда нужны === ##
+# !*.sln
+# !*.csproj
+# !*.config
