@@ -11,7 +11,9 @@ My course project on system programming
 ## Using
 
 ```Terminal
-PEscan.exe <file1.exe> [file2.exe ...] [-formats json,txt,csv,dot] [-out <outputDirectory>] [--filtered]
+PEscan.exe [-f <file.exe> | -d <directory>] [-formats json,txt,csv,dot] [-out <outputDirectory>] [--filtered]
+    -f, --file      : Path to a single EXE file
+    -d, --directory : Directory containing EXE files (up to 10 files) (Файлы обрабатываюся ассинхронно)
 ```
 
 **Выходными данными** являются отчеты, содержащие полный список всех динамических библиотек (прямых и транзитивных), сформированные в раз-личных представлениях: структурированный список (TXT, CSV), машиночи-таемый формат (JSON) и граф зависимостей (DOT) для последующей визуа-лизации.

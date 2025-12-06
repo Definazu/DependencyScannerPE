@@ -19,4 +19,17 @@ public sealed record DllDependencyNode(
     IReadOnlyCollection<DllDependencyNode> Dependencies,
     int Depth);
 
+/// <summary>
+/// Результат анализа одного файла
+/// </summary>
+public sealed record FileAnalysisResult(
+    string FilePath,
+    DllDependencyNode DependencyTree);
+
+/// <summary>
+/// Объединённый отчёт по нескольким файлам
+/// </summary>
+public sealed record CombinedReport(
+    IReadOnlyCollection<FileAnalysisResult> Files);
+
 

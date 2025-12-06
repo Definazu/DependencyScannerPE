@@ -127,7 +127,6 @@ public sealed class DependencyResolver
 
         var fullPath = Path.GetFullPath(resolvedPath);
         
-        // Проверяем, находится ли DLL в системных директориях Windows
         return fullPath.StartsWith(_system32Path, StringComparison.OrdinalIgnoreCase) ||
                (Directory.Exists(_sysWow64Path) && fullPath.StartsWith(_sysWow64Path, StringComparison.OrdinalIgnoreCase));
     }
